@@ -22,14 +22,14 @@ def get_gender_string():
 def get_birth_string():
     birth_string = ""
     while birth_string == "":
-        birth_string = input("Pleas enter donor birth: ")
+        birth_string = input("Pleas enter donor birth(YYYY:MM:DD): ")
     return birth_string
 
 
 def get_last_donation_string():
     last_donation_string = ""
     while last_donation_string == "":
-        last_donation_string = input("Pleas enter donor birth: ")
+        last_donation_string = input("Pleas enter donor last donation date(YYYY:MM:DD): ")
     return last_donation_string
 
 
@@ -57,7 +57,7 @@ def get_donor_blood_type_string():
 def get_id_experation_date_string():
     id_experation_date_string = ""
     while id_experation_date_string == "":
-        id_experation_date_string = input("Please enter the experation time of the ID: ")
+        id_experation_date_string = input("Please enter the experation time of the ID(YYYY:MM:DD): ")
     return id_experation_date_string
 
 
