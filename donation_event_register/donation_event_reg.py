@@ -1,7 +1,14 @@
+from datetime import datetime
+
+
 def get_date_of_event_string():
     date_of_event_string = ""
     while date_of_event_string == "":
-        date_of_event_string = input("Enter date of event: ")
+        date_of_event_string = input("Enter date of event (YYYY.MM.DD): ")
+        try:
+            datetime.strptime(date_of_event_string, '%Y.%m.%d')
+        except:
+            print("Incorrect date. Please try again")
     return date_of_event_string
 
 
@@ -53,8 +60,9 @@ def get_planned_donor_number():
         donor_number = input("Enter the planned number of donations: ")
     return donor_number
 
-"""
+
 get_date_of_event_string()
+"""
 get_donation_start_time()
 get_donation_end_time()
 get_zip_code()
