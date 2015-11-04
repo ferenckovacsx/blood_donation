@@ -53,6 +53,7 @@ def get_planned_donor_number():
         donor_number = input("Enter the planned number of donations: ")
     return donor_number
 
+"""
 get_date_of_event_string()
 get_donation_start_time()
 get_donation_end_time()
@@ -62,3 +63,4 @@ get_address()
 get_bed_count()
 get_planned_donor_number()
 get_planned_donor_number()
+"""
