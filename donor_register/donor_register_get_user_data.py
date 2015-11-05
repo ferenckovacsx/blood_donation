@@ -8,7 +8,7 @@ def get_name_string():
     while name_string == "":
         name_string = input("Enter donor's name: ")
         splitted_name = name_string.split(" ")
-        if len(splitted_name) == len([x for x in splitted_name if x.isalpha()]):
+        if len(splitted_name) >= 2 and len(splitted_name) == len([x for x in splitted_name if x.isalpha()]):
             return name_string
         else:
             print("Format is invalid. ('firstname lastname')")
@@ -20,7 +20,7 @@ def get_weight_string():
     while weight_string == "":
         weight_string = input("Please enter donor's weight: ")
         if weight_string.isdigit():
-            return weight_string
+            return int(weight_string)
         else:
             print("Invalid value.")
             weight_string = ""
@@ -107,8 +107,12 @@ def get_id_expiration_date():
     id_expiration_date_string = ""
     while id_expiration_date_string == "":
         id_expiration_date_string = input("Please enter the expiration date of the ID (YYYY.MM.DD): ")
-
-    return id_expiration_date_string
+        try:
+            donation_date = datetime.strptime(id_expiration_date_string,"%Y.%m.%d")
+            return donation_date
+        except:
+            print("Format is invalid. (YYYY.MM.DD)")
+            id_expiration_date_string = ""
 
 
 def email_is_valid(email_string):
@@ -154,6 +158,6 @@ def get_mobile_string():
     while mobile_string == "":
         mobile_string = input("Please enter donor's mobile number: ")
         if not is_it_valid_mobile_number(mobile_string):
-            print("Please enter a valid mobile number\nn(examples: +36301234567, 06201112223)")
+            print("Please enter a valid mobile number\n(examples: +36301234567, 06201112223)")
             mobile_string = ""
     return mobile_string
