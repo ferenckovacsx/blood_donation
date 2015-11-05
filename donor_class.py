@@ -17,7 +17,7 @@ class Donor(object):
     was_sick_last_month = ""
     identifier = ""
     id_expire = datetime(1, 1, 1)
-    blodd_type = ""
+    blood_type = ""
     e_mail = ""
     mobile_number = ""
     hemoglobin_level = 0
@@ -30,14 +30,12 @@ class Donor(object):
             print("The minimum age is not reached.")
             return False
 
-
     def check_weight(self, weight):
         if weight > MINIMUM_WEIGHT_IN_KG:
             return True
         else:
             print("The minimum weight is not reached.")
             return False
-
 
     def check_last_donation(self, last_doantion):
         if (TODAY - last_doantion).days > MIN_NUMBER_OF_DAYS_FROM_LAST_DONATION:
@@ -46,14 +44,12 @@ class Donor(object):
             print("The minimum age is not reached.")
             return False
 
-
     def check_id_expiration(self, id_expire):
         if id_expire > TODAY:
             return True
         else:
             print("Your ID is expired.")
             return False
-
 
     def check_hemoglobin(self):
         self.hemoglobin_level = random.randrange(80, 220)
@@ -63,8 +59,7 @@ class Donor(object):
         else:
             print("Your hemoglobin level is low.")
 
-
     def __repr__(self):
         how_old = ((TODAY - self.birth_date).days // 365)
         return "%s\n%d kg\n%s - %d years old\n%s\n%s\n%s"  \
-               % (self.name, self.weight, self.birth_date.date(), how_old, self.e_mail, self.mobile_number, self.blodd_type)
+               % (self.name, self.weight, self.birth_date.date(), how_old, self.e_mail, self.mobile_number, self.blood_type)

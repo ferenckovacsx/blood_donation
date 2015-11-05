@@ -37,7 +37,7 @@ def get_gender_string():
             gender_string = ""
 
 
-def get_birth_string():
+def get_birth_date():
     birth_string = ""
     while birth_string == "":
         birth_string = input("Pleas enter donor's date of birth (YYYY.MM.DD): ")
@@ -50,7 +50,7 @@ def get_birth_string():
             birth_string = ""
 
 
-def get_last_donation_string():
+def get_last_donation_date():
     last_donation_string = ""
     while last_donation_string == "":
         last_donation_string = input("Pleas enter donor's last donation date (YYYY.MM.DD): ")
@@ -103,7 +103,7 @@ def get_donor_blood_type_string():
     return blood_type_string
 
 
-def get_id_expiration_date_string():
+def get_id_expiration_date():
     id_expiration_date_string = ""
     while id_expiration_date_string == "":
         id_expiration_date_string = input("Please enter the expiration date of the ID (YYYY.MM.DD): ")
