@@ -158,6 +158,6 @@ def get_mobile_string():
     while mobile_string == "":
         mobile_string = input("Please enter donor's mobile number: ")
         if not is_it_valid_mobile_number(mobile_string):
-            print("Please enter a valid mobile number\nn(examples: +36301234567, 06201112223)")
+            print("Please enter a valid mobile number\n(examples: +36301234567, 06201112223)")
             mobile_string = ""
     return mobile_string
