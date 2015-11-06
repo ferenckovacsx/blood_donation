@@ -14,14 +14,6 @@ class DonationEvent:
     bed_count = 0
     donor_number = 0
 
-    def __init__(self, date_of_event_string, donation_start_time, donation_end_time, address, bed_count, donor_number):
-        self.date_of_event_string = date_of_event_string
-        self.donation_start_time = donation_start_time
-        self.donation_end_time = donation_end_time
-        self.address = address
-        self.bed_count = bed_count
-        self.donor_number = donor_number
-
 
     def check_min_period(self):
         if not datetime.strptime(self.date_of_event_string, "%Y.%m.%d") - datetime.today() >= MIN_PERIOD:
