@@ -18,9 +18,9 @@ def get_date_of_event_string():
 def get_donation_start_time():
     donation_start_time = ""
     while donation_start_time == "":
-        donation_start_time = input("Enter the start time of the donation: ")
+        donation_start_time = input("Enter the start time of the donation (H:M) : ")
         try:
-            datetime.strptime(donation_start_time, '%H.%M')
+            datetime.strptime(donation_start_time, '%H:%M')
             return donation_start_time
         except:
             print("Incorrect time format. Please try again.")
@@ -30,9 +30,9 @@ def get_donation_start_time():
 def get_donation_end_time():
     donation_end_time = ""
     while donation_end_time == "":
-        donation_end_time = input("Enter the end time of the donation: ")
+        donation_end_time = input("Enter the end time of the donation (H:M): ")
         try:
-            datetime.strptime(donation_end_time, '%H.%M')
+            datetime.strptime(donation_end_time, '%H:%M')
             return donation_end_time
         except:
             print("Incorrect time format. Please try again.")
@@ -53,7 +53,7 @@ def get_zip_code():
 def get_city():
     city = ""
     while city == "":
-        city = input("Enter city name: ")
+        city = input("Enter city name (one of the following: Miskolc, Kazincbarcika, Szerencs, Sarospatak): ")
         if city.lower() in CITIES:
             return city
         else:
