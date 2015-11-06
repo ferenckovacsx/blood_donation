@@ -91,12 +91,3 @@ def get_planned_donor_number():
             return donor_number
         else:
             print("Invalid input. Please enter a positive integer.")
-
-get_date_of_event_string()
-get_donation_start_time()
-get_donation_end_time()
-get_zip_code()
-get_city()
-get_address()
-get_bed_count()
-get_planned_donor_number()
