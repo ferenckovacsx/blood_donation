@@ -11,6 +11,8 @@ class DonationEvent:
     donation_start_time = ""
     donation_end_time = ""
     address = ""
+    zip_code = ""
+    city = ""
     bed_count = 0
     donor_number = 0
 
