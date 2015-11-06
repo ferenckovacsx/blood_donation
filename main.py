@@ -47,6 +47,10 @@ while Switch:
         donation_event_actual.city = donation_event_reg.get_city()
         donation_event_actual.bed_count = donation_event_reg.get_bed_count()
         donation_event_actual.donor_number = donation_event_reg.get_planned_donor_number()
+        if donation_event_actual.check_min_period and donation_event_actual.not_weekend():
+            donation_event_actual.actual_donor_number = input("How many succesful donation was?")
+            print(donation_event_actual.get_donation_success_rate())
+            sleep(5)
     elif Answer == "x":
         Switch = False
     else:
