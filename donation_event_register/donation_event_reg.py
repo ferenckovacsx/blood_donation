@@ -8,7 +8,7 @@ def get_date_of_event_string():
     while date_of_event_string == "":
         date_of_event_string = input("Enter date of event (YYYY.MM.DD): ")
         try:
-            datetime.strptime(date_of_event_string, '%Y.%m.%d')
+            date_of_event_string = datetime.strptime(date_of_event_string, '%Y.%m.%d')
             return date_of_event_string
         except:
             print("Incorrect date. Please try again.")
@@ -20,7 +20,7 @@ def get_donation_start_time():
     while donation_start_time == "":
         donation_start_time = input("Enter the start time of the donation: ")
         try:
-            datetime.strptime(donation_start_time, '%H.%M')
+            donation_start_time = datetime.strptime(donation_start_time, '%H.%M')
             return donation_start_time
         except:
             print("Incorrect time format. Please try again.")
@@ -32,7 +32,7 @@ def get_donation_end_time():
     while donation_end_time == "":
         donation_end_time = input("Enter the end time of the donation: ")
         try:
-            datetime.strptime(donation_end_time, '%H.%M')
+            donation_end_time = datetime.strptime(donation_end_time, '%H.%M')
             return donation_end_time
         except:
             print("Incorrect time format. Please try again.")
