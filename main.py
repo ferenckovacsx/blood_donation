@@ -3,6 +3,7 @@ from donation_event_register import donation_event_reg
 from datetime import datetime
 from time import sleep
 from donor_class import Donor
+from event_class import DonationEvent
 import os
 
 TODAY = datetime.today()
@@ -37,7 +38,15 @@ while Switch:
 
 
     elif Answer == "2":
-        pass
+        donation_event_actual = DonationEvent()
+        donation_event_actual.date_of_event_string = donation_event_reg.get_date_of_event_string()
+        donation_event_actual.donation_start_time = donation_event_reg.get_donation_start_time()
+        donation_event_actual.donation_end_time = donation_event_reg.get_donation_end_time()
+        donation_event_actual.address = donation_event_reg.get_address()
+        donation_event_actual.zip_code = donation_event_reg.get_zip_code()
+        donation_event_actual.city = donation_event_reg.get_city()
+        donation_event_actual.bed_count = donation_event_reg.get_bed_count()
+        donation_event_actual.donor_number = donation_event_reg.get_planned_donor_number()
     elif Answer == "x":
         Switch = False
     else:
