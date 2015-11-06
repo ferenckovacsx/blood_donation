@@ -6,15 +6,16 @@ PREPARATION_TIME = 30
 DONATION_TIME = 30
 
 class DonationEvent:
-    date_of_event_string = ""
-    donation_start_time = ""
-    donation_end_time = ""
+    date_of_event_string = datetime(1, 1, 1)
+    donation_start_time = datetime(1, 1, 1)
+    donation_end_time = datetime(1, 1, 1)
     city = ""
     address = ""
     zip_code = 0
     bed_count = 0
     donor_number = 0
     actual_donor_number = 0
+    duration = 0
 
     def __init__(self, date_of_event_string, donation_start_time, donation_end_time, address, bed_count, donor_number):
         self.date_of_event_string = date_of_event_string
@@ -39,7 +40,7 @@ class DonationEvent:
             return True
 
     def donation_duration(self):
-        duration = datetime.strptime(self.donation_end_time) - datetime.strptime(self.donation_start_time)
+        duration = datetime.strptime(self.donation_end_time,"%Y.%m.%d") - datetime.strptime(self.donation_start_time,"%Y.%m.%d")
         return duration
 
     def donation_number(self):
