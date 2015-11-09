@@ -6,7 +6,6 @@ from donor_class import Donor
 from event_class import DonationEvent
 import os
 
-TODAY = datetime.today()
 Switch = True
 
 while Switch:
@@ -29,11 +28,9 @@ while Switch:
         donor_datas.blood_type = donor_register_get_user_data.get_donor_blood_type_string()
         donor_datas.e_mail = donor_register_get_user_data.get_email_string()
         donor_datas.mobile_number = donor_register_get_user_data.get_mobile_string()
-        if donor_datas.check_age() and donor_datas.check_weight() and donor_datas.check_id_expiration() \
-            and donor_datas.check_last_donation() and donor_datas.check_hemoglobin():
-            print(donor_datas.__repr__())
-            sleep(10)
-            os.system('cls' if os.name == 'nt' else 'clear')
+        print(donor_datas.__repr__())
+        sleep(15)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
 
 

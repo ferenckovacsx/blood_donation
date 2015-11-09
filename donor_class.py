@@ -59,6 +59,17 @@ class Donor(object):
         else:
             print("\nYour hemoglobin level is low.")
 
+    def is_suitable(self):
+        if self.check_age() and self.check_weight() and self.check_id_expiration() \
+            and self.check_last_donation() and self.check_hemoglobin():
+            return "OK"
+        else:
+            return "Sorry"
+
     def __repr__(self):
-        return "\nName: %s\nWeight: %d kg\nAge: %s - %d years old\nE-Mail: %s\nMobile Number: %s\nBlood Type: %s"  \
-               % (self.name, self.weight, self.birth_date.date(), self.how_old, self.e_mail, self.mobile_number, self.blood_type)
+        return "\nName: %s - %s\nWeight: %d kg\nAge: %s - %d years old\nE-Mail: %s\n" \
+               "Mobile Number: %s\nBlood Type: %s\nID number: %s\nID expires: %s\nHemoglobin level: %s\n\n" \
+               "Donor suitable for donation: %s"  \
+               % (self.name, self.gender, self.weight, self.birth_date.date(), self.how_old, self.e_mail,
+                  self.mobile_number, self.blood_type, self.identifier, self.id_expire, self.hemoglobin_level,
+                  self.is_suitable())
