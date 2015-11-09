@@ -18,5 +18,18 @@ class ValidationTestCase(unittest.TestCase):
         self.assertFalse(donor_register_get_user_data.is_it_valid_mobile_number("36201122334"))
         self.assertTrue(donor_register_get_user_data.is_it_valid_mobile_number("06709873214"))
 
+    def test_name_validation(self):
+        self.assertTrue(donor_register_get_user_data.is_real_name("Peter Bonta"), "This is real name. My name. actually.")
+        self.assertFalse(donor_register_get_user_data.is_real_name("asd"), "This should be very wrong.")
+        self.assertFalse(donor_register_get_user_data.is_real_name(""), "If it accepts an empty string...")
+
+    def test_date_parsing(self):
+        self.assertTrue(donor_register_get_user_data.parse_date_string("2011.12.24"), "This date is in wrong format.")
+
+    def test_weight_as_integer(self):
+        self.assertFalse(donor_register_get_user_data.is_weight_an_integer("3.5"), "This is NOT an integer!")
+        self.assertFalse(donor_register_get_user_data.is_weight_an_integer("-30"), "This is an integer, but negative.")
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,25 +1,35 @@
 from datetime import datetime
 GENDERS = ("male","female")
 BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', '0+', '0-']
+DATE_FORMAT = "%Y.%m.%d"
 
+
+def is_real_name(name_string):
+    splitted_name = name_string.split(" ")
+    if len(splitted_name) >= 2 and len(splitted_name) == len([x for x in splitted_name if x.isalpha()]):
+        return True
+    return False
 
 def get_name_string():
     name_string = ""
     while name_string == "":
         name_string = input("Enter donor's name: ")
-        splitted_name = name_string.split(" ")
-        if len(splitted_name) >= 2 and len(splitted_name) == len([x for x in splitted_name if x.isalpha()]):
+        if is_real_name(name_string):
             return name_string
         else:
             print("Format is invalid. ('firstname lastname')")
             name_string = ""
 
 
+def is_weight_an_integer(weight_in_string):
+    return weight_in_string.isdigit()
+
+
 def get_weight_string():
     weight_string = ""
     while weight_string == "":
         weight_string = input("Please enter donor's weight: ")
-        if weight_string.isdigit():
+        if is_weight_an_integer(weight_string):
             return int(weight_string)
         else:
             print("Invalid value.")
@@ -37,15 +47,17 @@ def get_gender_string():
             gender_string = ""
 
 
+def parse_date_string(date_to_validate):
+    return datetime.strptime(date_to_validate, DATE_FORMAT)
+
 def get_birth_date():
     birth_string = ""
     while birth_string == "":
         birth_string = input("Pleas enter donor's date of birth (YYYY.MM.DD): ")
         try:
-            birth_date = datetime.strptime(birth_string,"%Y.%m.%d")
+            birth_date = parse_date_string(birth_string)
             return birth_date
         except:
-            print("Invalid date.")
             print("Format is invalid.(YYYY.MM.DD)")
             birth_string = ""
 
@@ -55,7 +67,7 @@ def get_last_donation_date():
     while last_donation_string == "":
         last_donation_string = input("Pleas enter donor's last donation date (YYYY.MM.DD): ")
         try:
-            donation_date = datetime.strptime(last_donation_string,"%Y.%m.%d")
+            donation_date = parse_date_string(last_donation_string)
             return donation_date
         except:
             print("Format is invalid. (YYYY.MM.DD)")
@@ -108,7 +120,7 @@ def get_id_expiration_date():
     while id_expiration_date_string == "":
         id_expiration_date_string = input("Please enter the expiration date of the ID (YYYY.MM.DD): ")
         try:
-            donation_date = datetime.strptime(id_expiration_date_string,"%Y.%m.%d")
+            donation_date = parse_date_string(id_expiration_date_string)
             return donation_date
         except:
             print("Format is invalid. (YYYY.MM.DD)")
