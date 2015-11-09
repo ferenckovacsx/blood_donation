@@ -39,8 +39,8 @@ class DonationEvent:
     def donation_number(self):
         max_donation_number = ((self.duration - PREPARATION_TIME) / DONATION_TIME) * self.bed_count
 
-    def get_donation_success_rate(self, donor_number, actual_donor_number):
-        rate = actual_donor_number / donor_number
+    def get_donation_success_rate(self):
+        rate = self.actual_donor_number / self.donor_number
 
         if rate < 0.2:
             return "Unsuccessful, not worth to organise there again."
